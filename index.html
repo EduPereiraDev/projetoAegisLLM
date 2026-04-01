@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AegisLLM – Business Model Canvas</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #0f1117;
+      color: #e2e8f0;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #38bdf8;
+      letter-spacing: 0.5px;
+    }
+
+    header p {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      margin-top: 6px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #1e3a5f;
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-top: 10px;
+    }
+
+    /* ── CANVAS GRID ── */
+    .canvas {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.6fr 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 6px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .cell {
+      background: #1a1f2e;
+      border: 1px solid #2d3748;
+      border-radius: 10px;
+      padding: 14px 16px;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+
+    .cell:hover { border-color: #38bdf8; }
+
+    /* row span helpers */
+    .row-span-2 { grid-row: span 2; }
+
+    /* bottom row spans */
+    .col-span-2 { grid-column: span 2; }
+    .col-span-3 { grid-column: span 3; }
+
+    .cell-title {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+
+    .cell-title .icon {
+      font-size: 1rem;
+    }
+
+    .cell ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cell ul li {
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      padding: 4px 0 4px 14px;
+      border-bottom: 1px solid #2d3748;
+      position: relative;
+      line-height: 1.45;
+    }
+
+    .cell ul li:last-child { border-bottom: none; }
+
+    .cell ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #38bdf8;
+      font-size: 0.65rem;
+      top: 5px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 1px 7px;
+      border-radius: 999px;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+
+    .tag-green  { background: #052e16; color: #4ade80; border: 1px solid #166534; }
+    .tag-yellow { background: #1c1a05; color: #facc15; border: 1px solid #713f12; }
+    .tag-blue   { background: #0c1a2e; color: #38bdf8; border: 1px solid #0369a1; }
+    .tag-red    { background: #2d0a0a; color: #f87171; border: 1px solid #7f1d1d; }
+
+    /* Proposta de Valor destaque */
+    .highlight {
+      background: linear-gradient(135deg, #0f2744 0%, #1a1f2e 100%);
+      border-color: #38bdf8;
+    }
+
+    /* Estrutura de Custos / Fontes de Receita */
+    .cell-cost  { border-color: #f87171; }
+    .cell-cost .cell-title  { color: #f87171; }
+    .cell-cost ul li::before { color: #f87171; }
+
+    .cell-rev   { border-color: #4ade80; }
+    .cell-rev .cell-title  { color: #4ade80; }
+    .cell-rev ul li::before { color: #4ade80; }
+
+    footer {
+      text-align: center;
+      margin-top: 22px;
+      font-size: 0.75rem;
+      color: #475569;
+    }
+
+    @media (max-width: 900px) {
+      .canvas {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: unset;
+      }
+      .row-span-2, .col-span-2, .col-span-3 {
+        grid-row: unset;
+        grid-column: unset;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🛡️ AegisLLM</h1>
+  <p>Governance &amp; FinOps Gateway para LLMs Corporativos</p>
+  <span class="badge">Business Model Canvas</span>
+</header>
+
+<div class="canvas">
+
+  <!-- 1. Parcerias Chave  col 1, rows 1-2 -->
+  <div class="cell row-span-2">
+    <div class="cell-title"><span class="icon">🔗</span> Parcerias Chave</div>
+    <ul>
+      <li>Google (Gemini API) – provedor de LLM base</li>
+      <li>Provedores de cloud (GCP, AWS, Azure) para infraestrutura</li>
+      <li>Equipes de TI e Segurança das empresas-cliente</li>
+      <li>Consultorias de FinOps e Compliance de IA</li>
+      <li>Órgãos reguladores (ANPD / LGPD) para certificação de privacidade</li>
+      <li>Comunidade open-source Python / Streamlit</li>
+    </ul>
+  </div>
+
+  <!-- 2. Atividades Chave  col 2, row 1 -->
+  <div class="cell">
+    <div class="cell-title"><span class="icon">⚙️</span> Atividades Chave</div>
+    <ul>
+      <li>Interceptação e tokenização de dados sensíveis (PII)</li>
+      <li>Gestão de orçamento de tokens com shadow billing</li>
+      <li>Cache semântico de prompts (evita chamadas duplicadas)</li>
+      <li>Auditoria contínua de segurança e custos</li>
+      <li>Manutenção do middleware e das integrações com LLMs</li>
+      <li>Desenvolvimento de dashboards FinOps</li>
+    </ul>
+  </div>
+
+  <!-- 3. Proposta de Valor  col 3, rows 1-2 (center, tall) -->
+  <div class="cell row-span-2 highlight">
+    <div class="cell-title"><span class="icon">🎁</span> Proposta de Valor</div>
+    <ul>
+      <li>
+        <strong>Privacidade by design</strong> – PII nunca chega à API externa
+        <span class="tag tag-blue">LGPD/GDPR</span>
+      </li>
+      <li>
+        <strong>Controle total de gastos</strong> com tokens de IA – orçamentos diários por usuário/time
+        <span class="tag tag-yellow">FinOps</span>
+      </li>
+      <li>
+        <strong>Redução de custos com cache semântico</strong> – chamadas duplicadas eliminadas
+        <span class="tag tag-green">Sustentável</span>
+      </li>
+      <li>
+        <strong>Menor pegada de carbono</strong> – menos requisições = menos energia consumida em data centers
+        <span class="tag tag-green">ESG</span>
+      </li>
+      <li>
+        <strong>Visibilidade e rastreabilidade</strong> de uso de IA dentro da empresa
+      </li>
+      <li>
+        <strong>Zero vendor lock-in</strong> – middleware agnóstico ao LLM
+      </li>
+      <li>
+        <strong>Shadow Billing</strong> – simula custo real antes de estourar limite
+      </li>
+    </ul>
+  </div>
+
+  <!-- 4. Relacionamento  col 4, row 1 -->
+  <div class="cell">
+    <div class="cell-title"><span class="icon">💙</span> Relacionamento</div>
+    <ul>
+      <li>SaaS self-service com dashboard web</li>
+      <li>Suporte técnico via comunidade / GitHub Issues</li>
+      <li>Documentação e onboarding automatizado</li>
+      <li>Relatórios de consumo e economia entregues por e-mail</li>
+      <li>Alertas proativos ao atingir limites de orçamento</li>
+    </ul>
+  </div>
+
+  <!-- 5. Segmento de Clientes  col 5, rows 1-2 -->
+  <div class="cell row-span-2">
+    <div class="cell-title"><span class="icon">👥</span> Segmento de Clientes</div>
+    <ul>
+      <li>Empresas de médio/grande porte que usam LLMs corporativos</li>
+      <li>Times de Tecnologia e DevOps adotando IA generativa</li>
+      <li>Departamentos Jurídicos / Compliance com exigência de privacidade</li>
+      <li>Startups de IA que precisam controlar OPEX de API</li>
+      <li>Setores regulados: saúde, financeiro, jurídico</li>
+      <li>Gestores de TI preocupados com custos e ESG</li>
+    </ul>
+  </div>
+
+  <!-- 2b. Recursos Chave  col 2, row 2 -->
+  <div class="cell">
+    <div class="cell-title"><span class="icon">🏭</span> Recursos Chave</div>
+    <ul>
+      <li>Código-fonte do middleware (Python / Streamlit)</li>
+      <li>Algoritmo de tokenização PBKDF2-HMAC-SHA256</li>
+      <li>Engine de cache semântico por hash criptográfico</li>
+      <li>Modelo de shadow billing integrado</li>
+      <li>Infraestrutura cloud (servidor + banco de auditoria)</li>
+      <li>Know-how em FinOps e segurança de IA</li>
+    </ul>
+  </div>
+
+  <!-- 4b. Canais  col 4, row 2 -->
+  <div class="cell">
+    <div class="cell-title"><span class="icon">🚚</span> Canais</div>
+    <ul>
+      <li>GitHub / open-source (distribuição inicial)</li>
+      <li>Interface web Streamlit (demo / POC)</li>
+      <li>Marketplace de nuvem (AWS/GCP/Azure)</li>
+      <li>Eventos de tecnologia e apresentações acadêmicas</li>
+      <li>LinkedIn e comunidades de FinOps &amp; IA</li>
+    </ul>
+  </div>
+
+  <!-- 6. Estrutura de Custos  col 1-2, row 3 -->
+  <div class="cell col-span-2 cell-cost">
+    <div class="cell-title"><span class="icon">🏷️</span> Estrutura de Custos</div>
+    <ul>
+      <li>Custos de API de LLM (Google Gemini) por token consumido <span class="tag tag-red">Principal</span></li>
+      <li>Infraestrutura cloud (hospedagem, banco de dados, logs)</li>
+      <li>Desenvolvimento e manutenção de software</li>
+      <li>Segurança e certificações de compliance (LGPD)</li>
+      <li>Marketing e vendas B2B</li>
+      <li><strong>Reduzidos pelo cache semântico</strong> – até 40-70% menos chamadas pagas <span class="tag tag-green">Eco-eficiência</span></li>
+    </ul>
+  </div>
+
+  <!-- 7. Fontes de Receita  col 3-5, row 3 -->
+  <div class="cell col-span-3 cell-rev">
+    <div class="cell-title"><span class="icon">💰</span> Fontes de Receita</div>
+    <ul>
+      <li>Assinatura SaaS mensal por número de usuários / tokens gerenciados <span class="tag tag-green">Recorrente</span></li>
+      <li>Plano Freemium (open-source) → conversão para plano pago com suporte e SLA</li>
+      <li>Licenciamento do middleware para integração em produtos corporativos</li>
+      <li>Consultoria de FinOps de IA – auditoria e otimização de gastos com LLMs</li>
+      <li>Relatórios de conformidade (LGPD/GDPR) e trilha de auditoria certificada</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- Sustentabilidade Banner -->
+<div style="max-width:1400px;margin:18px auto 0;background:linear-gradient(90deg,#052e16,#0c1a2e);border:1px solid #166534;border-radius:10px;padding:14px 20px;display:flex;align-items:center;gap:16px;">
+  <span style="font-size:1.6rem;">🌱</span>
+  <div>
+    <div style="font-size:0.8rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.8px;">Conexão com Sustentabilidade</div>
+    <div style="font-size:0.82rem;color:#a7f3d0;margin-top:4px;">
+      Cada chamada evitada pelo cache semântico = menos processamento em data centers = menor consumo de energia e emissão de CO₂.
+      O AegisLLM atua nos três pilares do ESG: <strong>E</strong> – reduz pegada energética da IA corporativa &nbsp;|&nbsp;
+      <strong>S</strong> – garante privacidade e conformidade com LGPD &nbsp;|&nbsp;
+      <strong>G</strong> – governança transparente de custos e uso de IA.
+    </div>
+  </div>
+</div>
+
+<!-- ODS Section -->
+<div style="max-width:1400px;margin:14px auto 0;">
+  <div style="font-size:0.75rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;text-align:center;">
+    Objetivos de Desenvolvimento Sustentável (ODS/ONU) Relacionados
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+
+    <!-- ODS 9 -->
+    <div style="background:#1a1f2e;border:2px solid #f97316;border-radius:10px;padding:16px;display:flex;gap:14px;align-items:flex-start;">
+      <div style="min-width:52px;height:52px;background:#f97316;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;">
+        <span style="font-size:1.3rem;">🏭</span>
+        <span style="font-size:0.65rem;font-weight:800;color:#fff;margin-top:2px;">ODS 9</span>
+      </div>
+      <div>
+        <div style="font-size:0.8rem;font-weight:700;color:#f97316;margin-bottom:5px;">Indústria, Inovação e Infraestrutura</div>
+        <div style="font-size:0.78rem;color:#cbd5e1;line-height:1.5;">
+          O AegisLLM é uma <strong>inovação tecnológica</strong> que torna a infraestrutura de IA corporativa mais eficiente, resiliente e acessível — reduzindo a barreira de uso responsável de LLMs para empresas de qualquer porte.
+        </div>
+      </div>
+    </div>
+
+    <!-- ODS 12 -->
+    <div style="background:#1a1f2e;border:2px solid #bf8c00;border-radius:10px;padding:16px;display:flex;gap:14px;align-items:flex-start;">
+      <div style="min-width:52px;height:52px;background:#bf8c00;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;">
+        <span style="font-size:1.3rem;">♻️</span>
+        <span style="font-size:0.65rem;font-weight:800;color:#fff;margin-top:2px;">ODS 12</span>
+      </div>
+      <div>
+        <div style="font-size:0.8rem;font-weight:700;color:#facc15;margin-bottom:5px;">Consumo e Produção Responsáveis</div>
+        <div style="font-size:0.78rem;color:#cbd5e1;line-height:1.5;">
+          O <strong>cache semântico</strong> elimina requisições duplicadas à API — evitando processamento desnecessário em data centers. Menos tokens consumidos = menos energia gasta = <strong>consumo mais responsável de recursos computacionais</strong>.
+        </div>
+      </div>
+    </div>
+
+    <!-- ODS 13 -->
+    <div style="background:#1a1f2e;border:2px solid #16a34a;border-radius:10px;padding:16px;display:flex;gap:14px;align-items:flex-start;">
+      <div style="min-width:52px;height:52px;background:#16a34a;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;">
+        <span style="font-size:1.3rem;">🌍</span>
+        <span style="font-size:0.65rem;font-weight:800;color:#fff;margin-top:2px;">ODS 13</span>
+      </div>
+      <div>
+        <div style="font-size:0.8rem;font-weight:700;color:#4ade80;margin-bottom:5px;">Ação Contra a Mudança Global do Clima</div>
+        <div style="font-size:0.78rem;color:#cbd5e1;line-height:1.5;">
+          Data centers respondem por ~1–1,5% do consumo elétrico global. Ao reduzir chamadas desnecessárias a LLMs, o AegisLLM contribui diretamente para a <strong>redução de emissões de CO₂</strong> associadas ao uso de IA em escala corporativa.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  AegisLLM • Ciência da Computação • Inovação, Sustentabilidade e Competitividade Empresarial • 2026
+</footer>
+
+</body>
+</html>
