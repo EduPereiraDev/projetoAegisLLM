@@ -1,230 +1,248 @@
 <!DOCTYPE html>
-<!-- PROPOSTA DE VALOR - AegisLLM -->
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"/>
 <title>Proposta de Valor – AegisLLM</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#222;padding:28px 32px;font-size:12px;}
-.header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#222;padding:22px 28px;font-size:11.5px;}
+.header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
 .brand{font-size:1.4rem;font-weight:800;color:#5b2d8e;}
 .title{font-size:1.7rem;font-weight:800;color:#5b2d8e;}
 
-/* CANVAS WRAPPER */
-.canvas{display:flex;align-items:center;gap:18px;width:100%;}
+/* ── wrapper ── */
+.canvas{display:flex;align-items:center;gap:20px;}
 
-/* ── LEFT SQUARE ── */
+/* ══════════════════════════════
+   QUADRADO (lado esquerdo)
+   Layout: 3 linhas × 1 coluna
+   linha 1 = Criadores de ganhos (alinhado à direita)
+   linha 2 = ícone Valor + Produtos/Serviços (centro)
+   linha 3 = Analgésicos (alinhado à esquerda)
+   Diagonal decorativa via SVG de fundo
+══════════════════════════════ */
 .square{
   flex:0 0 46%;
   background:#e9d8fd;
   border:2px solid #c2185b;
   border-radius:6px;
-  position:relative;
-  overflow:hidden;
-  min-height:460px;
-}
-/* diagonal line via pseudo-element */
-.square::after{
-  content:'';
-  position:absolute;
-  top:0;left:0;right:0;bottom:0;
-  background: linear-gradient(
-    to bottom right,
-    transparent calc(50% - 1px),
-    #c2185b calc(50% - 1px),
-    #c2185b calc(50% + 1px),
-    transparent calc(50% + 1px)
-  );
-  pointer-events:none;
-}
-/* top-right triangle content: Criadores de ganhos */
-.sq-top{
-  position:absolute;
-  top:14px; right:14px;
-  width:46%;
-  text-align:right;
-  z-index:1;
-}
-.sq-top .hint{font-size:.68rem;color:#c2185b;font-style:italic;margin-bottom:4px;}
-.sq-top .sec-title{font-weight:700;color:#5b2d8e;font-size:.82rem;margin-bottom:6px;}
-.sq-top ul{text-align:left;padding-left:12px;}
-.sq-top ul li{font-size:.77rem;line-height:1.6;color:#333;}
-
-/* bottom-left triangle content: Analgésicos */
-.sq-bot{
-  position:absolute;
-  bottom:14px; left:14px;
-  width:46%;
-  z-index:1;
-}
-.sq-bot .hint{font-size:.68rem;color:#c2185b;font-style:italic;margin-bottom:4px;}
-.sq-bot .sec-title{font-weight:700;color:#5b2d8e;font-size:.82rem;margin-bottom:6px;}
-.sq-bot ul{padding-left:12px;}
-.sq-bot ul li{font-size:.77rem;line-height:1.6;color:#333;}
-
-/* center of square: ícone + label + lista Produtos */
-.sq-mid{
-  position:absolute;
-  top:50%; left:50%;
-  transform:translate(-50%,-50%);
-  z-index:2;
+  position:relative;           /* só para o SVG de fundo */
   display:flex;
   flex-direction:column;
-  align-items:center;
-  text-align:center;
-  width:42%;
-}
-.valor-circle{
-  width:72px;height:72px;
-  border-radius:50%;
-  background:#fff;
-  border:3px solid #5b2d8e;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-}
-.valor-circle p{font-size:.68rem;font-weight:700;color:#5b2d8e;margin-top:1px;}
-.prod-label{font-weight:700;color:#5b2d8e;font-size:.8rem;margin-top:6px;line-height:1.3;}
-.prod-hint{font-size:.66rem;color:#888;font-style:italic;margin-bottom:4px;}
-.sq-mid ul{text-align:left;padding-left:12px;}
-.sq-mid ul li{font-size:.76rem;line-height:1.6;color:#333;}
-
-/* ── ARROW ── */
-.arrow{
-  display:flex;align-items:center;
-  font-size:1.5rem;color:#5b2d8e;
-  flex:0 0 24px;
+  min-height:460px;
 }
 
-/* ── RIGHT CIRCLE ── */
-.circle-wrap{
+/* SVG diagonal — puramente decorativo, não interfere no layout */
+.square-diag{
+  position:absolute;
+  inset:0;
+  width:100%;height:100%;
+  pointer-events:none;
+}
+
+/* as 3 linhas do quadrado */
+.sq-row{
+  position:relative;           /* acima do SVG */
+  z-index:1;
   flex:1;
   display:flex;
   align-items:center;
-  justify-content:center;
 }
-.big-circle{
-  width:100%;
-  max-width:480px;
-  aspect-ratio:1;
+
+/* linha 1 — Criadores de ganhos → topo direito */
+.sq-row-top{ justify-content:flex-end; padding:14px 16px 0 50%; }
+
+/* linha 2 — centro com ícone */
+.sq-row-mid{ justify-content:center; padding:0 16px; }
+
+/* linha 3 — Analgésicos → baixo esquerdo */
+.sq-row-bot{ justify-content:flex-start; padding:0 50% 14px 16px; }
+
+/* bloco de texto dentro de cada linha */
+.sq-block{ width:100%; }
+.sq-hint{font-size:.68rem;color:#c2185b;font-style:italic;margin-bottom:3px;}
+.sq-title{font-weight:700;color:#5b2d8e;font-size:.83rem;margin-bottom:6px;}
+ul{padding-left:13px;}
+ul li{font-size:.79rem;line-height:1.65;color:#333;}
+
+/* ícone central */
+.sq-mid-inner{
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;gap:4px;
+  background:rgba(233,216,253,.92);
+  padding:8px 12px;
+  border-radius:8px;
+}
+.valor-circle{
+  width:68px;height:68px;border-radius:50%;
+  background:#fff;border:3px solid #5b2d8e;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.valor-circle p{font-size:.68rem;font-weight:700;color:#5b2d8e;margin-top:1px;}
+.prod-title{font-weight:700;color:#5b2d8e;font-size:.8rem;line-height:1.3;}
+.prod-hint{font-size:.65rem;color:#888;font-style:italic;margin:2px 0 4px;}
+.sq-mid-inner ul{text-align:left;}
+
+/* ── seta ── */
+.arrow{font-size:1.4rem;color:#5b2d8e;flex:0 0 20px;text-align:center;}
+
+/* ══════════════════════════════
+   CÍRCULO (lado direito)
+   3 faixas horizontais: Ganhos | Cliente+Tarefas | Dores
+   Borda circular via border-radius
+══════════════════════════════ */
+.circle-wrap{
+  flex:1;
+  display:flex;align-items:center;justify-content:center;
+}
+.circle{
+  width:100%;max-width:440px;
+  aspect-ratio:1/1;
   border-radius:50%;
   border:3px solid #5b2d8e;
   background:#f3e8ff;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-/* dividers inside circle */
-.big-circle::before{
-  content:'';
-  position:absolute;
-  top:0;bottom:0;
-  left:50%;
-  width:2px;
-  background:#5b2d8e;
-  transform:translateX(-50%);
-}
-.big-circle::after{
-  content:'';
-  position:absolute;
-  top:50%;left:0;right:0;
-  height:2px;
-  background:#5b2d8e;
-  transform:translateY(-50%);
-}
-.client-center{
-  position:relative;
-  z-index:3;
   display:flex;flex-direction:column;
-  align-items:center;text-align:center;
-  background:#f3e8ff;
-  padding:4px 8px;
-  border-radius:50%;
+  overflow:hidden;
 }
-.client-center svg{width:40px;height:40px;}
-.client-center p{font-size:.72rem;font-weight:700;color:#5b2d8e;margin-top:2px;}
-/* quadrants */
-.quad{
-  position:absolute;
-  width:44%;
-  z-index:2;
+
+/* faixa superior: Ganhos */
+.c-top{
+  flex:1;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  border-bottom:2px solid #5b2d8e;
+  padding:10px 18% 8px;
 }
-.quad-title{font-weight:700;color:#5b2d8e;font-size:.8rem;margin-bottom:3px;}
-.quad-hint{font-size:.67rem;color:#c2185b;font-style:italic;margin-bottom:4px;line-height:1.3;}
-.quad ul{padding-left:12px;}
-.quad ul li{font-size:.76rem;line-height:1.6;color:#333;}
-.q-ganhos{top:6%;left:50%;transform:translateX(-52%);text-align:center;}
-.q-tarefas{top:28%;right:3%;text-align:left;}
-.q-dores{bottom:6%;left:50%;transform:translateX(-52%);text-align:center;}
+
+/* faixa do meio: Ouve | ícone Cliente | Tarefas */
+.c-mid{
+  flex:0 0 auto;
+  display:flex;align-items:stretch;
+  border-bottom:2px solid #5b2d8e;
+}
+.c-mid-left{
+  flex:1;
+  display:flex;align-items:center;justify-content:flex-end;
+  padding:8px 10px;
+  border-right:2px solid #5b2d8e;
+}
+.c-mid-center{
+  flex:0 0 110px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  padding:4px;
+}
+.c-mid-center svg{width:40px;height:40px;}
+.c-mid-center p{font-size:.72rem;font-weight:700;color:#5b2d8e;margin-top:3px;}
+.c-mid-right{
+  flex:1;
+  display:flex;align-items:center;justify-content:flex-start;
+  padding:8px 10px;
+  border-left:2px solid #5b2d8e;
+}
+
+/* faixa inferior: Dores */
+.c-bot{
+  flex:1;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  padding:8px 18% 10px;
+}
+
+.c-hint{font-size:.67rem;color:#c2185b;font-style:italic;margin-bottom:2px;line-height:1.3;}
+.c-title{font-weight:700;color:#5b2d8e;font-size:.82rem;margin-bottom:4px;}
+.c-mid-left ul,.c-mid-right ul{padding-left:12px;}
+.c-mid-left ul li,.c-mid-right ul li{font-size:.77rem;line-height:1.6;color:#333;}
+.c-top ul,.c-bot ul{list-style:none;padding:0;}
+.c-top ul li,.c-bot ul li{font-size:.77rem;line-height:1.65;color:#333;}
+.c-top ul li::before,.c-bot ul li::before{content:'• ';color:#5b2d8e;}
 </style>
 </head>
 <body>
+
 <div class="header">
   <div class="brand">ã nest</div>
   <div class="title">Proposta de Valor</div>
 </div>
+
 <div class="canvas">
 
-  <!-- QUADRADO ROXO -->
+  <!-- ══ QUADRADO ══ -->
   <div class="square">
 
-    <!-- topo direito: Criadores de ganhos -->
-    <div class="sq-top">
-      <div class="hint">O que oferecer aos clientes para obterem os ganhos?</div>
-      <div class="sec-title">Criadores de ganhos</div>
-      <ul>
-        <li>Cache semântico — economia de 40–70% na fatura de API</li>
-        <li>Dashboard FinOps com shadow billing e projeção de custo por usuário</li>
-        <li>Relatório de conformidade LGPD gerado automaticamente</li>
-        <li>Menos tokens = menos energia = menor pegada de carbono</li>
-        <li>ROI mensurável apresentável ao C-level desde a 1ª semana</li>
-      </ul>
-    </div>
+    <!-- SVG diagonal decorativa -->
+    <svg class="square-diag" preserveAspectRatio="none" viewBox="0 0 100 100">
+      <line x1="0" y1="0" x2="100" y2="100" stroke="#c2185b" stroke-width="0.5"/>
+    </svg>
 
-    <!-- centro: ícone Valor + Produtos/Serviços -->
-    <div class="sq-mid">
-      <div class="valor-circle">
-        <svg width="30" height="30" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="36" stroke="#5b2d8e" stroke-width="7"/><text x="50" y="60" text-anchor="middle" font-size="42" fill="#5b2d8e">$</text></svg>
-        <p>Valor</p>
+    <!-- linha 1: Criadores de ganhos (topo direito) -->
+    <div class="sq-row sq-row-top">
+      <div class="sq-block">
+        <div class="sq-hint">O que oferecer aos clientes para obterem os ganhos?</div>
+        <div class="sq-title">Criadores de ganhos</div>
+        <ul>
+          <li>Cache semântico — economia de 40–70% na fatura de API</li>
+          <li>Dashboard FinOps com shadow billing e projeção de custo por usuário</li>
+          <li>Relatório de conformidade LGPD gerado automaticamente</li>
+          <li>Menos tokens = menos energia = menor pegada de carbono</li>
+          <li>ROI mensurável apresentável ao C-level desde a 1ª semana</li>
+        </ul>
       </div>
-      <div class="prod-label">Produtos<br>ou<br>Serviços</div>
-      <div class="prod-hint">Quais soluções auxiliam o cliente a realizar as tarefas?</div>
-      <ul>
-        <li>Middleware AegisLLM (Python open-source)</li>
-        <li>Data Vault — tokenização reversível de PII</li>
-        <li>FinOps Dashboard com shadow billing</li>
-        <li>Semantic Cache por hash criptográfico</li>
-        <li>Trilha de auditoria de segurança</li>
-      </ul>
     </div>
 
-    <!-- baixo esquerdo: Analgésicos -->
-    <div class="sq-bot">
-      <div class="sec-title">Analgésicos</div>
-      <div class="hint">O que oferecer ao cliente para aliviar as dores?<br>O que oferecer para solucionar os problemas do cliente?</div>
-      <ul>
-        <li>Trava preemptiva de orçamento — impede estouros antes de acontecerem</li>
-        <li>Tokenização automática de CPF, e-mail e cartão — PII nunca sai da empresa</li>
-        <li>Plug-and-play — sem refatoração de código existente</li>
-        <li>Log completo de auditoria — rastreabilidade total do uso de IA</li>
-        <li>Open-source — sem custo de licença, sem vendor lock-in</li>
-      </ul>
+    <!-- linha 2: ícone + Produtos/Serviços (centro) -->
+    <div class="sq-row sq-row-mid">
+      <div class="sq-mid-inner">
+        <div class="valor-circle">
+          <svg width="28" height="28" viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="50" r="36" stroke="#5b2d8e" stroke-width="7"/>
+            <text x="50" y="62" text-anchor="middle" font-size="44" fill="#5b2d8e">$</text>
+          </svg>
+          <p>Valor</p>
+        </div>
+        <div class="prod-title">Produtos<br>ou<br>Serviços</div>
+        <div class="prod-hint">Quais soluções auxiliam o cliente a realizar as tarefas?</div>
+        <ul>
+          <li>Middleware AegisLLM (Python open-source)</li>
+          <li>Data Vault — tokenização reversível de PII</li>
+          <li>FinOps Dashboard com shadow billing</li>
+          <li>Semantic Cache por hash criptográfico</li>
+          <li>Trilha de auditoria de segurança</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- linha 3: Analgésicos (baixo esquerdo) -->
+    <div class="sq-row sq-row-bot">
+      <div class="sq-block">
+        <div class="sq-title">Analgésicos</div>
+        <div class="sq-hint">O que oferecer ao cliente para aliviar as dores?<br>O que oferecer para solucionar os problemas do cliente?</div>
+        <ul>
+          <li>Trava preemptiva de orçamento — impede estouros antes de acontecerem</li>
+          <li>Tokenização automática de CPF, e-mail e cartão — PII nunca sai da empresa</li>
+          <li>Plug-and-play — sem refatoração de código existente</li>
+          <li>Log completo de auditoria — rastreabilidade total do uso de IA</li>
+          <li>Open-source — sem custo de licença, sem vendor lock-in</li>
+        </ul>
+      </div>
     </div>
 
   </div>
 
-  <!-- SETA -->
+  <!-- ── seta ── -->
   <div class="arrow">←</div>
 
-  <!-- CÍRCULO SEGMENTO DE CLIENTES -->
+  <!-- ══ CÍRCULO ══ -->
   <div class="circle-wrap">
-    <div class="big-circle">
+    <div class="circle">
 
-      <!-- Ganhos: quadrante superior esquerdo -->
-      <div class="quad q-ganhos">
-        <div class="quad-hint">O que faz o cliente ficar feliz?<br>O que torna sua vida mais fácil dentro desse contexto?</div>
-        <div class="quad-title">Ganhos</div>
+      <!-- GANHOS (topo) -->
+      <div class="c-top">
+        <div class="c-hint">O que faz o cliente ficar feliz?<br>O que torna sua vida mais fácil dentro desse contexto?</div>
+        <div class="c-title">Ganhos</div>
         <ul>
           <li>Visibilidade total dos gastos de IA por usuário/squad</li>
           <li>Conformidade LGPD sem esforço extra do time</li>
@@ -233,32 +251,40 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#222;padding:
         </ul>
       </div>
 
-      <!-- Tarefas: quadrante direito -->
-      <div class="quad q-tarefas">
-        <div class="quad-hint">Quais tarefas o cliente precisa começar, realizar ou concluir?</div>
-        <div class="quad-title">Tarefas</div>
-        <ul>
-          <li>Controlar budget de tokens por dev/squad</li>
-          <li>Proteger PII antes de enviar prompts a LLMs</li>
-          <li>Auditar uso de IA na empresa</li>
-          <li>Justificar gastos de IA ao gestor financeiro</li>
-        </ul>
+      <!-- MEIO: espaço vazio esquerda | Cliente | Tarefas direita -->
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <!-- lado esquerdo vazio no template original -->
+        </div>
+        <div class="c-mid-center">
+          <svg viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="34" r="22" stroke="#5b2d8e" stroke-width="5"/>
+            <path d="M12 92 C12 64 88 64 88 92" stroke="#5b2d8e" stroke-width="5" fill="none"/>
+          </svg>
+          <p>Cliente</p>
+        </div>
+        <div class="c-mid-right">
+          <div>
+            <div class="c-hint">Quais tarefas o cliente precisa começar, realizar ou concluir?</div>
+            <div class="c-title">Tarefas</div>
+            <ul>
+              <li>Controlar budget de tokens por dev/squad</li>
+              <li>Proteger PII antes de enviar prompts a LLMs</li>
+              <li>Auditar uso de IA na empresa</li>
+              <li>Justificar gastos de IA ao gestor financeiro</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-      <!-- Centro: Cliente -->
-      <div class="client-center">
-        <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="34" r="22" stroke="#5b2d8e" stroke-width="5"/><path d="M12 92 C12 64 88 64 88 92" stroke="#5b2d8e" stroke-width="5" fill="none"/></svg>
-        <p>Cliente</p>
-      </div>
-
-      <!-- Dores: quadrante inferior -->
-      <div class="quad q-dores">
-        <div class="quad-title">Dores</div>
-        <div class="quad-hint">Quais são os principais problemas?<br>O que o impede de realizar as tarefas?</div>
+      <!-- DORES (baixo) -->
+      <div class="c-bot">
+        <div class="c-title">Dores</div>
+        <div class="c-hint">Quais são os principais problemas?<br>O que o impede de realizar as tarefas?</div>
         <ul>
-          <li>Fatura de API imprevisível e sem controle</li>
-          <li>Risco de vazamento de dados via prompts</li>
-          <li>Ausência de auditoria de uso de IA</li>
+          <li>Fatura de API imprevisível e sem controle por usuário</li>
+          <li>Risco de vazamento de dados sensíveis via prompts</li>
+          <li>Ausência de auditoria de uso de IA na empresa</li>
           <li>Soluções existentes caras ou complexas de integrar</li>
         </ul>
       </div>
