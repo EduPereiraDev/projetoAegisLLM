@@ -5,39 +5,69 @@
 <title>Ficha de Persona – AegisLLM</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#222;padding:28px;font-size:13px;}
-.header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
-.brand{font-size:1.5rem;font-weight:800;color:#5b2d8e;}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#222;padding:22px 28px;font-size:12px;}
+.header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.brand{font-size:1.4rem;font-weight:800;color:#5b2d8e;}
 .title{font-size:1.7rem;font-weight:800;color:#5b2d8e;}
-.main{display:grid;grid-template-columns:190px 1fr;gap:10px;}
-.left{display:flex;flex-direction:column;gap:10px;}
-.avatar-box{border:2px solid #c2185b;border-radius:6px;height:175px;display:flex;align-items:center;justify-content:center;background:#f9f0ff;}
-.box{border:2px solid #c2185b;border-radius:6px;padding:9px;}
-.box-title{font-weight:700;color:#5b2d8e;font-size:.83rem;margin-bottom:5px;}
-.box p{font-size:.8rem;line-height:1.7;color:#333;}
-.right{display:flex;flex-direction:column;gap:10px;}
-.sec-title{font-weight:700;color:#5b2d8e;font-size:.88rem;margin-bottom:3px;}
+
+/* layout principal: col esquerda fixa + col direita flex */
+.main{display:grid;grid-template-columns:175px 1fr;gap:10px;align-items:start;}
+
+/* ── COLUNA ESQUERDA ── */
+.left{display:flex;flex-direction:column;gap:8px;}
+.avatar-box{
+  border:2px solid #c2185b;
+  border-radius:6px;
+  height:170px;
+  display:flex;align-items:center;justify-content:center;
+  background:#f9f0ff;
+}
+.lbox{border:2px solid #c2185b;border-radius:6px;padding:8px 10px;}
+.lbox-title{font-weight:700;color:#5b2d8e;font-size:.82rem;margin-bottom:5px;}
+.lbox p{font-size:.79rem;line-height:1.75;color:#333;}
+
+/* ── COLUNA DIREITA ── */
+.right{display:flex;flex-direction:column;gap:8px;}
+
+/* rotina: 6 colunas */
+.rotina-label{font-weight:700;color:#5b2d8e;font-size:.85rem;margin-bottom:3px;}
 .rotina-row{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;}
-.rotina-cell{border:2px solid #c2185b;border-radius:6px;padding:7px;min-height:78px;}
-.rotina-time{font-weight:700;color:#5b2d8e;font-size:.76rem;margin-bottom:3px;}
-.rotina-cell p{font-size:.74rem;color:#333;line-height:1.45;}
-.mid-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.carac{border:2px solid #c2185b;border-radius:6px;padding:9px;}
-.carac-title{font-weight:700;color:#5b2d8e;font-size:.88rem;margin-bottom:7px;}
-.carac p{font-size:.79rem;line-height:1.85;color:#333;}
-.carac p span{font-weight:600;}
-.scale-wrap{margin-top:3px;}
-.scale-row{display:flex;align-items:center;gap:3px;margin-bottom:2px;}
-.scale-label{font-size:.72rem;color:#888;width:36px;}
-.dot{width:12px;height:12px;border-radius:2px;background:#e0d0f7;display:inline-block;}
+.rcell{
+  border:2px solid #c2185b;
+  border-radius:6px;
+  padding:6px 7px;
+  min-height:80px;
+}
+.rtime{font-weight:700;color:#5b2d8e;font-size:.75rem;margin-bottom:3px;}
+.rcell p{font-size:.74rem;color:#333;line-height:1.45;}
+
+/* linha do meio: características + bloco direito */
+.mid{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:start;}
+
+/* características */
+.carac{
+  border:2px solid #c2185b;
+  border-radius:6px;
+  padding:9px 11px;
+}
+.carac-title{font-weight:700;color:#5b2d8e;font-size:.87rem;margin-bottom:7px;}
+.carac p{font-size:.79rem;line-height:1.9;color:#333;}
+.carac p b{font-weight:600;}
+
+/* escalas */
+.srow{display:flex;align-items:center;gap:3px;margin:1px 0;}
+.slabel{font-size:.72rem;color:#888;}
+.dot{width:11px;height:11px;border-radius:2px;background:#e0d0f7;display:inline-block;flex-shrink:0;}
 .dot.on{background:#5b2d8e;}
-.right-mid{display:flex;flex-direction:column;gap:10px;}
-.obj-box{border:2px solid #c2185b;border-radius:6px;padding:9px;flex:1;}
-.ff-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.sol-box{border:2px solid #c2185b;border-radius:6px;padding:9px;}
-.tag{font-size:.7rem;font-weight:700;color:#5b2d8e;text-transform:uppercase;margin-bottom:4px;}
-ul{padding-left:14px;}
-ul li{font-size:.8rem;line-height:1.7;color:#333;}
+.smax{font-size:.68rem;color:#888;}
+
+/* direita do meio */
+.rside{display:flex;flex-direction:column;gap:8px;}
+.cbox{border:2px solid #c2185b;border-radius:6px;padding:8px 10px;}
+.cbox-title{font-weight:700;color:#5b2d8e;font-size:.84rem;margin-bottom:5px;}
+.ff{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+ul{padding-left:13px;}
+ul li{font-size:.79rem;line-height:1.7;color:#333;}
 </style>
 </head>
 <body>
@@ -46,67 +76,78 @@ ul li{font-size:.8rem;line-height:1.7;color:#333;}
   <div class="title">Ficha de Persona</div>
 </div>
 <div class="main">
+
+  <!-- COLUNA ESQUERDA -->
   <div class="left">
     <div class="avatar-box">
-      <svg width="72" height="72" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="70" height="70" viewBox="0 0 100 100" fill="none">
         <circle cx="50" cy="34" r="22" stroke="#5b2d8e" stroke-width="4"/>
         <path d="M12 92 C12 64 88 64 88 92" stroke="#5b2d8e" stroke-width="4" fill="none"/>
       </svg>
     </div>
-    <div class="box">
-      <div class="box-title">Marcas:</div>
+    <div class="lbox">
+      <div class="lbox-title">Marcas:</div>
       <p>AWS · Google Cloud<br>GitHub · Postman<br>Slack · Jira<br>OpenAI · Gemini API</p>
     </div>
-    <div class="box">
-      <div class="box-title">Tecnologia:</div>
+    <div class="lbox">
+      <div class="lbox-title">Tecnologia:</div>
       <p>MacBook Pro<br>VS Code + GitHub Copilot<br>Docker / Kubernetes<br>Smartphone Android<br>Fones com ANC</p>
     </div>
   </div>
+
+  <!-- COLUNA DIREITA -->
   <div class="right">
-    <div class="sec-title">Rotina:</div>
+
+    <!-- ROTINA -->
+    <div class="rotina-label">Rotina:</div>
     <div class="rotina-row">
-      <div class="rotina-cell"><div class="rotina-time">06h00</div><p>Acorda, verifica Slack e e-mails. Lê newsletters de tech e IA.</p></div>
-      <div class="rotina-cell"><div class="rotina-time">09h00</div><p>Daily standup. Usa LLMs para gerar código, docs e análises.</p></div>
-      <div class="rotina-cell"><div class="rotina-time">12h00</div><p>Almoço. Confere dashboards de custo de infra no celular.</p></div>
-      <div class="rotina-cell"><div class="rotina-time">15h00</div><p>Revisão de squad. Analisa relatórios de gasto de API do time.</p></div>
-      <div class="rotina-cell"><div class="rotina-time">18h00</div><p>Encerra expediente. Estuda FinOps e segurança de dados em casa.</p></div>
-      <div class="rotina-cell"><div class="rotina-time">21h00</div><p>Projetos pessoais com IA open-source. Comunidade Dev no Discord.</p></div>
+      <div class="rcell"><div class="rtime">06h00</div><p>Acorda, verifica Slack e e-mails. Lê newsletters de tech e IA.</p></div>
+      <div class="rcell"><div class="rtime">09h00</div><p>Daily standup. Usa LLMs para gerar código, docs e análises.</p></div>
+      <div class="rcell"><div class="rtime">12h00</div><p>Almoço. Confere dashboards de custo de infra no celular.</p></div>
+      <div class="rcell"><div class="rtime">15h00</div><p>Revisão de squad. Analisa relatórios de gasto de API do time.</p></div>
+      <div class="rcell"><div class="rtime">18h00</div><p>Encerra expediente. Estuda FinOps e segurança de dados em casa.</p></div>
+      <div class="rcell"><div class="rtime">21h00</div><p>Projetos pessoais com IA open-source. Comunidade Dev no Discord.</p></div>
     </div>
-    <div class="mid-row">
+
+    <!-- MEIO: características + bloco direito -->
+    <div class="mid">
+
+      <!-- CARACTERÍSTICAS -->
       <div class="carac">
         <div class="carac-title">Características:</div>
-        <p><span>Nome:</span> Rafael Mendes &nbsp;&nbsp; <span>Idade:</span> 31 anos</p>
-        <p><span>Formação:</span> Ciência da Computação</p>
-        <p><span>Ocupação:</span> Tech Lead / Eng. de Software</p>
-        <p><span>Tempo na função:</span> 6 anos</p>
-        <p><span>Renda média mensal:</span> R$ 14.000</p>
-        <p><span>Estado civil:</span> Solteiro</p>
-        <p><span>Filhos:</span> Não</p>
-        <p><span>Residência:</span> São Paulo / SP</p>
-        <div class="scale-wrap">
-          <p style="margin-top:6px"><span>Organização:</span></p>
-          <div class="scale-row"><span class="scale-label">mínimo</span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="scale-label">máximo</span></div>
-          <p><span>Proatividade:</span></p>
-          <div class="scale-row"><span class="scale-label">mínimo</span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="scale-label">máximo</span></div>
-          <p><span>Propenso a mudanças:</span></p>
-          <div class="scale-row"><span class="scale-label">mínimo</span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="scale-label">máximo</span></div>
-          <p><span>Satisfação com soluções atuais:</span></p>
-          <div class="scale-row"><span class="scale-label">mínimo</span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="scale-label">máximo</span></div>
-        </div>
+        <p><b>Nome:</b> Rafael Mendes &nbsp;&nbsp;&nbsp; <b>Idade:</b> 31 anos</p>
+        <p><b>Formação:</b> Ciência da Computação</p>
+        <p><b>Ocupação:</b> Tech Lead / Eng. de Software</p>
+        <p><b>Tempo na função:</b> 6 anos</p>
+        <p><b>Renda média mensal:</b> R$ 14.000</p>
+        <p><b>Estado civil:</b> Solteiro</p>
+        <p><b>Filhos:</b> Não</p>
+        <p><b>Residência:</b> São Paulo / SP</p>
+        <br>
+        <p><b>Organização:</b></p>
+        <div class="srow"><span class="slabel">mínimo</span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="smax">máximo</span></div>
+        <p><b>Proatividade:</b></p>
+        <div class="srow"><span class="slabel">mínimo</span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="smax">máximo</span></div>
+        <p><b>Propenso a mudanças:</b></p>
+        <div class="srow"><span class="slabel">mínimo</span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="smax">máximo</span></div>
+        <p><b>Satisfação com soluções atuais:</b></p>
+        <div class="srow"><span class="slabel">mínimo</span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="smax">máximo</span></div>
       </div>
-      <div class="right-mid">
-        <div class="obj-box">
-          <div class="tag">Objetivos:</div>
+
+      <!-- BLOCO DIREITO: Objetivos + Forças/Fraquezas + Como ajuda -->
+      <div class="rside">
+        <div class="cbox">
+          <div class="cbox-title">Objetivos:</div>
           <ul>
             <li>Controlar custos de tokens de IA do time sem travar a produtividade</li>
-            <li>Garantir que dados sensíveis de clientes não vazem para APIs externas</li>
+            <li>Garantir que dados sensíveis não vazem para APIs externas</li>
             <li>Ter visibilidade total do uso de LLMs na empresa</li>
             <li>Reduzir desperdício computacional e alinhar TI ao ESG corporativo</li>
           </ul>
         </div>
-        <div class="ff-row">
-          <div class="obj-box">
-            <div class="tag">Forças:</div>
+        <div class="ff">
+          <div class="cbox">
+            <div class="cbox-title">Forças:</div>
             <ul>
               <li>Alta capacidade técnica</li>
               <li>Visão sistêmica de infra</li>
@@ -114,17 +155,17 @@ ul li{font-size:.8rem;line-height:1.7;color:#333;}
               <li>Influência sobre decisões de stack</li>
             </ul>
           </div>
-          <div class="obj-box">
-            <div class="tag">Fraquezas:</div>
+          <div class="cbox">
+            <div class="cbox-title">Fraquezas:</div>
             <ul>
               <li>Pouco tempo para avaliar soluções novas</li>
-              <li>Dificuldade em justificar custos para o C-level</li>
+              <li>Dificuldade em justificar custos ao C-level</li>
               <li>Sobrecarga de ferramentas no dia a dia</li>
             </ul>
           </div>
         </div>
-        <div class="sol-box">
-          <div class="tag">Como o AegisLLM pode ajudar:</div>
+        <div class="cbox">
+          <div class="cbox-title">Como minha solução pode ajudar:</div>
           <ul>
             <li>Middleware plug-and-play entre o time e os LLMs — sem mudar workflow</li>
             <li>Dashboard FinOps com shadow billing e travas de orçamento por usuário</li>
@@ -133,8 +174,10 @@ ul li{font-size:.8rem;line-height:1.7;color:#333;}
           </ul>
         </div>
       </div>
+
     </div>
   </div>
+
 </div>
 </body>
 </html>
