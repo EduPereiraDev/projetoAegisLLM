@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<title>Jornada do Usuário – AegisLLM</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#222;padding:28px;font-size:13px;}
+.header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.brand{font-size:1.5rem;font-weight:800;color:#5b2d8e;}
+.title{font-size:1.7rem;font-weight:800;color:#5b2d8e;}
+table{width:100%;border-collapse:collapse;}
+th,td{border:2px solid #c2185b;padding:9px 10px;vertical-align:top;}
+th{background:#5b2d8e;color:#fff;font-size:.82rem;text-align:center;font-weight:700;}
+.row-header{background:#f9f0ff;font-weight:700;color:#5b2d8e;font-size:.82rem;width:130px;}
+.row-header .sub{font-weight:400;color:#888;font-size:.72rem;display:block;margin-top:3px;}
+td p{font-size:.8rem;line-height:1.6;color:#333;}
+td .pensamento{font-style:italic;color:#5b2d8e;font-size:.8rem;margin-bottom:4px;}
+td ul{padding-left:14px;}
+td ul li{font-size:.8rem;line-height:1.65;color:#333;}
+.emojis{font-size:1.2rem;letter-spacing:4px;}
+.oport{background:#f3e8ff;}
+.oport li{color:#5b2d8e;font-weight:500;}
+.avatar-cell{text-align:center;background:#f9f0ff;}
+.produto-cell{text-align:center;background:#f9f0ff;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="brand">ã nest</div>
+  <div class="title">Jornada do Usuário</div>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th style="background:#fff;border:2px solid #c2185b;color:#5b2d8e;">Etapas do percurso:</th>
+      <th>Interesse</th>
+      <th>Procura</th>
+      <th>Consideração</th>
+      <th>Compra / Adoção</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- linha cliente/situação -->
+    <tr>
+      <td class="avatar-cell">
+        <svg width="48" height="48" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="34" r="22" stroke="#5b2d8e" stroke-width="5"/><path d="M12 92 C12 64 88 64 88 92" stroke="#5b2d8e" stroke-width="5" fill="none"/></svg>
+        <div style="font-size:.75rem;color:#5b2d8e;font-weight:700;margin-top:4px;">Cliente</div>
+      </td>
+      <td><p style="color:#c2185b;font-size:.74rem;margin-bottom:4px;">Situação: Qual a dor do cliente?</p>
+        <p>Rafael percebe que a fatura de API de LLM do time disparou sem controle. Não sabe quem gastou nem por quê. Recebe cobrança do gestor financeiro.</p>
+      </td>
+      <td><p style="color:#c2185b;font-size:.74rem;margin-bottom:4px;">Situação: Como o cliente procura?</p>
+        <p>Rafael pesquisa no GitHub e Google por "LLM cost control", "token budget middleware" e "AI FinOps". Pergunta em comunidades Dev no Discord e LinkedIn.</p>
+      </td>
+      <td><p style="color:#c2185b;font-size:.74rem;margin-bottom:4px;">Situação: O que o cliente leva em consideração antes de fechar negócio?</p>
+        <p>Rafael avalia se a solução é fácil de integrar, se tem impacto na latência, se protege dados sensíveis (LGPD) e se há prova de ROI com cache semântico.</p>
+      </td>
+      <td class="produto-cell">
+        <svg width="48" height="48" viewBox="0 0 100 100" fill="none"><rect x="20" y="40" width="60" height="45" rx="5" stroke="#5b2d8e" stroke-width="5"/><path d="M35 40 V30 Q50 10 65 30 V40" stroke="#5b2d8e" stroke-width="5" fill="none"/><path d="M42 60 L50 68 L60 55" stroke="#c2185b" stroke-width="4"/></svg>
+        <div style="font-size:.75rem;color:#5b2d8e;font-weight:700;margin-top:4px;">Produto / Serviço</div>
+      </td>
+    </tr>
+    <!-- pensamentos -->
+    <tr>
+      <td class="row-header">Pensamentos<span class="sub">O que achei dessas experiências?</span></td>
+      <td><p class="pensamento">"Gastamos R$3k em tokens esse mês e não sei em quê. Isso não pode continuar."</p></td>
+      <td><p class="pensamento">"Existem ferramentas de observabilidade de LLM, mas nenhuma que bloqueie PII antes de enviar."</p></td>
+      <td><p class="pensamento">"O AegisLLM é open-source, tem cache e tokenização de dados. Será que escala pro nosso volume?"</p></td>
+      <td><p class="pensamento">"Integrei em 30 min, o cache já reduziu 40% das chamadas. Vou propor isso pro C-level."</p></td>
+    </tr>
+    <!-- ações -->
+    <tr>
+      <td class="row-header">Ações<span class="sub">Quais ações precisei fazer?</span></td>
+      <td><ul>
+        <li>Baixou relatório de custos da API no console do Google Cloud</li>
+        <li>Levantou com o time quais prompts são mais repetidos</li>
+        <li>Alertou o gestor sobre o crescimento dos gastos</li>
+      </ul></td>
+      <td><ul>
+        <li>Buscou soluções no GitHub e Product Hunt</li>
+        <li>Perguntou em comunidades de FinOps e Dev</li>
+        <li>Comparou 3 abordagens: proxies comerciais, scripts caseiros, AegisLLM</li>
+      </ul></td>
+      <td><ul>
+        <li>Leu a documentação e o README do AegisLLM</li>
+        <li>Rodou o projeto localmente com Docker</li>
+        <li>Testou o cache semântico e a tokenização de CPF/e-mail</li>
+        <li>Apresentou POC ao gestor com print do dashboard FinOps</li>
+      </ul></td>
+      <td><ul>
+        <li>Deploy do AegisLLM em ambiente de produção</li>
+        <li>Configurou orçamentos diários por usuário</li>
+        <li>Ativou trilha de auditoria de PII</li>
+        <li>Compartilhou dashboard de economia com o time financeiro</li>
+      </ul></td>
+    </tr>
+    <!-- sentimentos -->
+    <tr>
+      <td class="row-header">Sentimentos<span class="sub">Inserir emojis</span></td>
+      <td><div class="emojis">😰😤</div></td>
+      <td><div class="emojis">🔍🤔</div></td>
+      <td><div class="emojis">🧐🤩</div></td>
+      <td><div class="emojis">😎✅🚀</div></td>
+    </tr>
+    <!-- oportunidades -->
+    <tr>
+      <td class="row-header">Oportunidades<span class="sub">Referente ao produto/serviço</span></td>
+      <td class="oport"><ul>
+        <li>Criar alertas automáticos de custo que disparam antes de estourar o orçamento</li>
+        <li>Gerar relatório mensal de gasto por usuário automaticamente</li>
+      </ul></td>
+      <td class="oport"><ul>
+        <li>Estar presente em repositórios de "awesome-finops" e "awesome-llm"</li>
+        <li>Publicar artigo técnico no Dev.to e Medium para alcance orgânico</li>
+      </ul></td>
+      <td class="oport"><ul>
+        <li>Oferecer demo interativa no browser sem precisar instalar nada</li>
+        <li>Publicar benchmarks de economia de custo para reduzir fricção de decisão</li>
+      </ul></td>
+      <td class="oport"><ul>
+        <li>Plano de fidelidade / tier pago com SLA, suporte e relatórios de ESG automáticos</li>
+        <li>Integração nativa com Slack para alertas de orçamento em tempo real</li>
+      </ul></td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

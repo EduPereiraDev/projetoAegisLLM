@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<title>Proposta de Valor – AegisLLM</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#222;padding:28px;font-size:13px;}
+.header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.brand{font-size:1.5rem;font-weight:800;color:#5b2d8e;}
+.title{font-size:1.7rem;font-weight:800;color:#5b2d8e;}
+.canvas{display:flex;align-items:stretch;gap:0;width:100%;}
+
+/* LEFT SQUARE */
+.square{background:#e9d8fd;border:2px solid #c2185b;border-radius:8px;flex:0 0 44%;position:relative;display:grid;grid-template-rows:1fr auto 1fr;padding:18px;gap:0;}
+.sq-top{display:flex;flex-direction:column;align-items:flex-end;padding-bottom:14px;border-bottom:2px dashed #c2185b;}
+.sq-bottom{display:flex;flex-direction:column;align-items:flex-end;padding-top:14px;}
+.sq-center{display:flex;align-items:center;justify-content:center;}
+.sq-center-inner{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.valor-circle{width:80px;height:80px;border-radius:50%;background:#fff;border:3px solid #5b2d8e;display:flex;align-items:center;justify-content:center;flex-direction:column;}
+.valor-circle p{font-size:.7rem;font-weight:700;color:#5b2d8e;text-align:center;margin-top:2px;}
+.sq-section-title{font-weight:700;color:#5b2d8e;font-size:.82rem;margin-bottom:6px;text-align:right;}
+.sq-hint{font-size:.7rem;color:#888;text-align:right;margin-bottom:6px;font-style:italic;}
+ul{padding-left:14px;}
+ul li{font-size:.79rem;line-height:1.7;color:#333;}
+.sq-label{font-size:.82rem;font-weight:700;color:#5b2d8e;text-align:center;margin-top:6px;}
+
+/* ARROW */
+.arrow{display:flex;align-items:center;padding:0 10px;color:#5b2d8e;font-size:1.6rem;}
+
+/* RIGHT CIRCLE */
+.circle-wrap{flex:1;position:relative;display:flex;align-items:center;justify-content:center;}
+.big-circle{width:100%;aspect-ratio:1;border-radius:50%;border:3px solid #5b2d8e;background:#f9f0ff;position:relative;display:flex;align-items:center;justify-content:center;}
+.client-center{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:2;}
+.client-center svg{width:44px;height:44px;}
+.client-center p{font-size:.72rem;font-weight:700;color:#5b2d8e;margin-top:3px;}
+
+/* Sections inside circle using absolute positioning */
+.seg{position:absolute;width:42%;font-size:.77rem;}
+.seg-title{font-weight:700;color:#5b2d8e;font-size:.8rem;margin-bottom:4px;}
+.seg-hint{font-size:.69rem;color:#888;font-style:italic;margin-bottom:4px;}
+
+.seg-ganhos{top:8%;left:50%;transform:translateX(-50%);text-align:center;}
+.seg-tarefas{top:30%;right:2%;text-align:right;}
+.seg-dores{bottom:8%;left:50%;transform:translateX(-50%);text-align:center;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="brand">ã nest</div>
+  <div class="title">Proposta de Valor</div>
+</div>
+<div class="canvas">
+
+  <!-- SQUARE: Proposta de Valor -->
+  <div class="square">
+    <!-- TOP: Criadores de ganhos -->
+    <div class="sq-top">
+      <div class="sq-hint">O que oferecer aos clientes para obterem os ganhos?</div>
+      <div class="sq-section-title">Criadores de ganhos</div>
+      <ul style="text-align:left;width:100%">
+        <li>Cache semântico elimina chamadas duplicadas — economia de 40–70% na fatura de API</li>
+        <li>Dashboard FinOps com shadow billing e projeção de custo mensal por usuário</li>
+        <li>Relatório de conformidade LGPD gerado automaticamente</li>
+        <li>Redução de pegada de carbono — menos tokens = menos energia em data centers</li>
+        <li>ROI mensurável e apresentável ao C-level desde a primeira semana</li>
+      </ul>
+    </div>
+
+    <!-- CENTER: Produtos/Serviços + ícone -->
+    <div class="sq-center">
+      <div class="sq-center-inner">
+        <div class="valor-circle">
+          <svg width="32" height="32" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="38" stroke="#5b2d8e" stroke-width="6"/><text x="50" y="58" text-anchor="middle" font-size="36" fill="#5b2d8e">$</text></svg>
+          <p>Valor</p>
+        </div>
+        <div class="sq-label">Produtos<br>ou<br>Serviços</div>
+        <ul style="text-align:left;margin-top:6px;width:100%">
+          <li>Middleware AegisLLM (open-source Python)</li>
+          <li>Data Vault — tokenização reversível de PII</li>
+          <li>FinOps Dashboard com shadow billing</li>
+          <li>Semantic Cache por hash criptográfico</li>
+          <li>Trilha de auditoria de segurança</li>
+        </ul>
+        <div style="font-size:.7rem;color:#888;font-style:italic;margin-top:4px;text-align:left;">Quais soluções auxiliam o cliente a realizar as tarefas?</div>
+      </div>
+    </div>
+
+    <!-- BOTTOM: Analgésicos -->
+    <div class="sq-bottom">
+      <div class="sq-section-title">Analgésicos</div>
+      <div class="sq-hint">O que oferecer ao cliente para aliviar as dores?</div>
+      <ul style="text-align:left;width:100%">
+        <li>Trava preemptiva de orçamento — impede estouros antes de acontecerem</li>
+        <li>Tokenização automática de CPF, e-mail e cartão — PII nunca sai da empresa</li>
+        <li>Integração plug-and-play — sem refatoração de código existente</li>
+        <li>Log completo de auditoria — acaba com o "não sei o que o time mandou pra IA"</li>
+        <li>Solução open-source — sem custo de licença, sem vendor lock-in</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ARROW -->
+  <div class="arrow">←</div>
+
+  <!-- CIRCLE: Segmento de Clientes -->
+  <div class="circle-wrap">
+    <div class="big-circle">
+
+      <!-- Ganhos -->
+      <div class="seg seg-ganhos">
+        <div class="seg-hint">O que faz o cliente ficar feliz?</div>
+        <div class="seg-title">Ganhos</div>
+        <ul style="text-align:left;padding-left:12px;">
+          <li>Visibilidade total dos gastos de IA por usuário/squad</li>
+          <li>Conformidade LGPD sem esforço extra do time</li>
+          <li>Economia comprovada na fatura de API</li>
+          <li>Relatório de impacto ESG para o C-level</li>
+        </ul>
+      </div>
+
+      <!-- Tarefas -->
+      <div class="seg seg-tarefas">
+        <div class="seg-hint">Quais tarefas o cliente precisa começar, realizar ou concluir?</div>
+        <div class="seg-title">Tarefas</div>
+        <ul style="text-align:left;padding-left:12px;">
+          <li>Controlar budget de tokens por dev/squad</li>
+          <li>Proteger PII antes de enviar prompts a LLMs</li>
+          <li>Auditar uso de IA na empresa</li>
+          <li>Justificar gastos de IA ao gestor financeiro</li>
+        </ul>
+      </div>
+
+      <!-- Center: cliente -->
+      <div class="client-center">
+        <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="34" r="22" stroke="#5b2d8e" stroke-width="5"/><path d="M12 92 C12 64 88 64 88 92" stroke="#5b2d8e" stroke-width="5" fill="none"/></svg>
+        <p>Cliente</p>
+      </div>
+
+      <!-- Dores -->
+      <div class="seg seg-dores">
+        <div class="seg-title">Dores</div>
+        <div class="seg-hint">Quais são os principais problemas?</div>
+        <ul style="text-align:left;padding-left:12px;">
+          <li>Fatura de API imprevisível e sem controle</li>
+          <li>Risco de vazamento de dados via prompts</li>
+          <li>Ausência de auditoria de uso de IA</li>
+          <li>Soluções existentes caras ou complexas</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

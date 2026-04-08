@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<title>Mapa de Empatia – AegisLLM</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#222;padding:28px;font-size:13px;}
+.header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.brand{font-size:1.5rem;font-weight:800;color:#5b2d8e;}
+.title{font-size:1.7rem;font-weight:800;color:#5b2d8e;}
+.grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;gap:8px;position:relative;}
+.cell{border:2px solid #c2185b;border-radius:6px;padding:12px 14px;}
+.cell-title{font-weight:700;color:#5b2d8e;font-size:.9rem;margin-bottom:3px;}
+.cell-sub{font-size:.72rem;color:#888;margin-bottom:8px;}
+ul{padding-left:14px;}
+ul li{font-size:.8rem;line-height:1.75;color:#333;}
+.center-row{display:flex;align-items:center;justify-content:center;gap:12px;grid-column:1/3;padding:10px 0;}
+.center-circle{width:110px;height:110px;border-radius:50%;background:#f3e8ff;border:3px solid #5b2d8e;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+.center-circle svg{width:44px;height:44px;}
+.center-circle p{font-size:.75rem;font-weight:700;color:#5b2d8e;margin-top:4px;line-height:1.3;}
+.bottom-row{grid-column:1/3;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+.cell-dores{border-color:#c2185b;}
+.cell-desejos{border-color:#5b2d8e;}
+.cell-acoes{border-color:#c2185b;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="brand">ã nest</div>
+  <div class="title">Mapa de Empatia</div>
+</div>
+<div class="grid">
+
+  <!-- Persona -->
+  <div class="cell">
+    <div class="cell-title">Persona:</div>
+    <div class="cell-sub">Principais características</div>
+    <ul>
+      <li>Rafael Mendes, 31 anos, Tech Lead em startup de SaaS</li>
+      <li>Responsável pela stack de IA do time de engenharia</li>
+      <li>Paga e gerencia APIs de LLM para vários devs do squad</li>
+      <li>Preocupado com custos, privacidade de dados e conformidade LGPD</li>
+    </ul>
+  </div>
+
+  <!-- Necessidades -->
+  <div class="cell">
+    <div class="cell-title">Necessidades:</div>
+    <div class="cell-sub">Listar principais necessidades da persona</div>
+    <ul>
+      <li>Controlar gastos de tokens de IA sem burocratizar o fluxo do time</li>
+      <li>Garantir que CPF, e-mails e dados de clientes não saiam da empresa</li>
+      <li>Ter rastreabilidade de quem usou IA, quanto custou e o que enviou</li>
+      <li>Reduzir chamadas duplicadas e desperdício de API</li>
+    </ul>
+  </div>
+
+  <!-- Pensa e sente -->
+  <div class="cell">
+    <div class="cell-title">Pensa e sente?</div>
+    <div class="cell-sub">Em relação às suas dores e necessidades</div>
+    <ul>
+      <li>"Não sei quanto cada dev está gastando em tokens esse mês"</li>
+      <li>"Tenho medo de um vazamento de dado de cliente em prompt de LLM"</li>
+      <li>"Precisamos de governança de IA mas não posso parar o time pra isso"</li>
+      <li>"Quero mostrar ROI da IA pro CFO mas não tenho números"</li>
+    </ul>
+  </div>
+
+  <!-- Vê -->
+  <div class="cell">
+    <div class="cell-title">Vê?</div>
+    <div class="cell-sub">Estímulos visuais diários da persona</div>
+    <ul>
+      <li>Faturas crescentes de API no painel do Google Cloud / AWS</li>
+      <li>Notícias sobre multas de LGPD para empresas que vazaram dados via IA</li>
+      <li>Times concorrentes adotando políticas de IA responsável</li>
+      <li>Posts no LinkedIn sobre FinOps de IA e custos de LLM fora de controle</li>
+    </ul>
+  </div>
+
+  <!-- Centro -->
+  <div class="center-row">
+    <div style="text-align:right;flex:1;border-right:2px dashed #c2185b;padding-right:16px;">
+      <div style="font-size:.72rem;color:#888;">influências que<br>recebe rotineiramente</div>
+    </div>
+    <div class="center-circle">
+      <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="34" r="22" stroke="#5b2d8e" stroke-width="5"/><path d="M12 92 C12 64 88 64 88 92" stroke="#5b2d8e" stroke-width="5" fill="none"/></svg>
+      <p>O que o<br>cliente...</p>
+    </div>
+    <div style="text-align:left;flex:1;border-left:2px dashed #c2185b;padding-left:16px;">
+      <div style="font-size:.72rem;color:#888;">A respeito do consumo<br>de produtos ou<br>serviços existentes</div>
+    </div>
+  </div>
+
+  <!-- Ouve -->
+  <div class="cell">
+    <div class="cell-title">Ouve?</div>
+    <ul>
+      <li>Gestor financeiro cobrando explicações sobre a fatura de API</li>
+      <li>Colegas reclamando de prompts recusados ou limite de uso atingido</li>
+      <li>DPO (encarregado de dados) alertando sobre riscos de LGPD com IA</li>
+      <li>Comunidade Dev falando sobre OpenAI rate limits e custos explosivos</li>
+    </ul>
+  </div>
+
+  <!-- Faz e fala -->
+  <div class="cell">
+    <div class="cell-title">Faz e fala?</div>
+    <ul>
+      <li>Fala: "Precisamos de um jeito de rastrear quem gasta o quê em IA"</li>
+      <li>Fala: "Não podemos mandar dados de clientes direto pra API externa"</li>
+      <li>Faz: Cria planilhas manuais de controle de uso de API</li>
+      <li>Faz: Pesquisa proxies e middlewares de LLM no GitHub</li>
+    </ul>
+  </div>
+
+  <!-- Bottom: Dores / Desejos / Ações -->
+  <div class="bottom-row">
+    <div class="cell cell-dores">
+      <div class="cell-title">Dores:</div>
+      <div class="cell-sub">Em relação às suas necessidades</div>
+      <ul>
+        <li>Fatura de API imprevisível e sem breakdown por usuário</li>
+        <li>Risco de vazamento de PII em prompts enviados a LLMs externos</li>
+        <li>Ausência de auditoria — não sabe o que o time está mandando pra IA</li>
+        <li>Soluções existentes são caras ou exigem refatoração de código</li>
+      </ul>
+    </div>
+    <div class="cell cell-desejos">
+      <div class="cell-title">Desejos:</div>
+      <div class="cell-sub">O que poderia existir para resolver as dores e ajudar nas necessidades</div>
+      <ul>
+        <li>Middleware transparente que não mude o workflow do dev</li>
+        <li>Dashboard de gastos por usuário com projeção de custo mensal</li>
+        <li>Proteção automática de PII sem configuração manual</li>
+        <li>Cache que elimine requisições duplicadas e prove economia</li>
+      </ul>
+    </div>
+    <div class="cell cell-acoes">
+      <div class="cell-title">Ações:</div>
+      <div class="cell-sub">Quais tarefas precisa realizar? Quais decisões precisa tomar?</div>
+      <ul>
+        <li>Adotar solução de governança de LLM sem parar o time</li>
+        <li>Apresentar ROI de economia ao gestor financeiro</li>
+        <li>Garantir conformidade LGPD no uso corporativo de IA</li>
+        <li>Configurar limites de orçamento por dev/squad</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
